@@ -83,7 +83,7 @@ for more information about copyfiles write
 ### SimRobot
 
 - In order for the robot to connect to the simRobot a login must have been executed before hand.
--- Check LabTutorials/HowToS/ConnectToNewerNaoBHuman in order to setup a wired connection with Nao while using bhuman
+    - Check LabTutorials/HowToS/ConnectToNewerNaoBHuman in order to setup a wired connection with Nao while using bhuman
     - https://github.com/AnonKour/LabTutorials
 - After the connection setup we navigate to BHumanCodeRelease/Make/Linux and run in the terminal
 ```
@@ -100,11 +100,11 @@ with 192.168.3.25 to be the ip of the Nao we want to connect and as a pass we us
 ## Things needed for simRobot
 
 - Activations of the following
--- behavior
--- worldState
--- lower
--- upper
--- console
+    - behavior
+    - worldState
+    - lower
+    - upper
+    - console
 
 The folders of where they above can be found can be seen in the example picture.
 
