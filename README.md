@@ -13,6 +13,9 @@ Change between those two happens with the left bumper. At first it tracks statio
 tracking. The touch sensor at the top of the nao works as kill switch.
 This is the version 2 in which Nao also listens for falling and fallen states while on the halt state, after the first cycle of behaviors has occured in order to try to recover form the fall.
 
+** Keep in mind that if you copy and place the code to any existing project that has options as well as other modules changed you will loose any chnages made in those files. 
+So a safer option would be to manual copy them to their designated positions**
+
 ## Required files
 
 - Roles:

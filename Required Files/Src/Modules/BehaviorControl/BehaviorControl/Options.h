@@ -29,7 +29,7 @@
 #include "Options/Output/MotionRequest/WalkToTarget.h"
 #include "Options/Output/MotionRequest/GetUpEngine.h"
 #include "Options/Output/PlaySound.h"
-
+#include "Options/Roles/Striker.h"
 #include "Options/Roles/Example.h"
 #include "Options/Roles/ScienceDaySoccerBehavior.h"
 #include "Options/Roles/ScienceDaySoccerBehaviorV2.h"
