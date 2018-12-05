@@ -139,26 +139,26 @@ option(ScienceDaySoccerBehaviorV2)
 	
 	state(stand)
 	{
-		transition
-		{
-            if(action_done)
+            transition
             {
-                // If you have reached the ball sit down. Can I track while sitted?
-                
-                OUTPUT_TEXT("Walking to ball.");
-                goto walkToBall;
+                if(action_done)
+                {
+                    // If you have reached the ball sit down. Can I track while sitted?
+                    
+                    OUTPUT_TEXT("Walking to ball.");
+                    goto walkToBall;
+                }
             }
-        }
-        action
-        {
-            //Activity(BehaviorStatus::gettingUp); Way to aggressive
+            action
+            {
+                //Activity(BehaviorStatus::gettingUp); Way to aggressive
 
-            theHeadControlMode = HeadControl::lookForward;
-            
-			HeadControl();
-			
-            Stand();
-        }
+                theHeadControlMode = HeadControl::lookForward;
+                
+                HeadControl();
+                            
+                Stand();
+            }
 	}
 	
 	// In this state the nao heads to the ball.
@@ -175,24 +175,24 @@ option(ScienceDaySoccerBehaviorV2)
 				goto halt;
 			}
 			
-            // Check if the ball has been seen recently.
+                        // Check if the ball has been seen recently.
+                        
+                        if(theLibCodeRelease.timeSinceBallWasSeen > 3000)//theBehaviorParameters.ballNotSeenTimeOut)
+                        {
+                            // If not, we need to relocate it.
+                            
+                            OUTPUT_TEXT("searchForBall");
+                            goto searchForBall;
+                        }
             
-            if(theLibCodeRelease.timeSinceBallWasSeen > 3000)//theBehaviorParameters.ballNotSeenTimeOut)
-            {
-                // If not, we need to relocate it.
-                
-                OUTPUT_TEXT("searchForBall");
-                goto searchForBall;
-            }
-            
-            // If you have reached the ball sit down. Can I track while sitted?
+                        // If you have reached the ball sit down. Can I track while sitted?
 			//if(theLibCodeRelease.between(theBallModel.estimate.position.angle(),-10_deg,10_deg) && 
 //!!!!!!!!!!! With the angle it needs testing. was 250
 			if(theLibCodeRelease.between(theBallModel.estimate.position.x(),160,210) && (theLibCodeRelease.between(theBallModel.estimate.position.angle(),-10_deg,10_deg)))
-            {
-                OUTPUT_TEXT("In position to kick the ball. Kicking");
-                goto kick;
-            }
+                        {
+                            OUTPUT_TEXT("In position to kick the ball. Kicking");
+                            goto kick;
+                        }
 			
 			/* Since the code is executed in a serial order if the angle of the robot and the ball isnt the expected
 			   it wont go to kick. Instead it should go to align with ball in order to have the ball in front of it.

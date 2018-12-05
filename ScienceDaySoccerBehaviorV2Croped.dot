@@ -1,0 +1,47 @@
+digraph G {
+    rankdir=TB;//LR Top Bottom, left right
+    size = "10000";//1000
+    center= "true";
+    xlabels= curved;
+node [style=filled,fontname=Arial,fontsize=9,height=0.2];
+concentrate = false;
+HeadControl[style=filled, fillcolor=tan, color=saddlebrown];
+HandleGameState[style=filled, fillcolor=pink, color=red];
+HandlePenaltyState[style=filled, fillcolor=pink, color=red];
+ReadyState[style=filled, fillcolor=pink, color=red];
+LookForward[style=filled, fillcolor=tan, color=saddlebrown];
+LookLeftAndRight[style=filled, fillcolor=tan, color=saddlebrown];
+LookBall[style=filled, fillcolor=tan, color=saddlebrown];
+Activity[style=filled, fillcolor=lightskyblue1, color=navyblue];
+SetHeadPanTilt[style=filled, fillcolor=lightskyblue1, color=navyblue];
+SpecialAction[style=filled, fillcolor=lightskyblue1, color=navyblue];
+Stand[style=filled, fillcolor=lightskyblue1, color=navyblue];
+WalkAtRelativeSpeed[style=filled, fillcolor=lightskyblue1, color=navyblue];
+GetUpEngine[style=filled, fillcolor=lightskyblue1, color=navyblue];
+PlaySound[style=filled, fillcolor=lightskyblue1, color=navyblue];
+ScienceDaySoccerBehaviorV2[style=filled, fillcolor=palegreen, color=mediumseagreen];
+GetUp[style=filled, fillcolor=khaki1, color=yellow4];
+HeadControl -> SetHeadPanTilt;
+HeadControl -> LookForward;
+HeadControl -> LookLeftAndRight;
+HeadControl -> LookBall;
+HandleGameState -> SetHeadPanTilt;
+HandleGameState -> SpecialAction;
+HandleGameState -> Stand;
+HandleGameState -> GetUp;
+HandleGameState -> ReadyState;
+HandlePenaltyState -> HandleGameState;
+HandlePenaltyState -> PlaySound;
+HandlePenaltyState -> SpecialAction;
+HandlePenaltyState -> Stand;
+ReadyState -> Stand;
+LookForward -> SetHeadPanTilt;
+LookLeftAndRight -> LookForward;
+LookLeftAndRight -> SetHeadPanTilt;
+LookBall -> SetHeadPanTilt;
+ScienceDaySoccerBehaviorV2 -> Stand;
+ScienceDaySoccerBehaviorV2 -> WalkAtRelativeSpeed;
+GetUp -> Activity;
+GetUp -> GetUpEngine;
+GetUp -> Stand;
+}

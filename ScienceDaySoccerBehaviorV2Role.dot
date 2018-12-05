@@ -1,0 +1,40 @@
+digraph G {
+    rankdir=TB;//LR Top Bottom, left right
+    //size = "1000";//1000
+    center= "true";
+    xlabels= curved;
+node [style=filled,fontname=Arial,fontsize=9,height=0.2];
+concentrate = true;
+playDead[shape=diamond];
+waitForBumper;
+walkToBall;
+trackTheBall;
+halt;
+getUp;
+searchForBallStill;
+stand;
+searchForBall;
+kick;
+alignWithBall;
+
+playDead -> waitForBumper;
+playDead -> walkToBall; 
+waitForBumper -> trackTheBall;
+trackTheBall -> stand;
+trackTheBall -> searchForBallStill;
+stand -> walkToBall;
+walkToBall -> halt;
+walkToBall -> searchForBall;
+walkToBall -> kick;
+walkToBall -> alignWithBall;
+alignWithBall -> halt;
+alignWithBall -> walkToBall;
+halt -> getUp;
+halt -> trackTheBall;
+getUp -> halt;
+searchForBallStill -> stand;
+searchForBallStill -> trackTheBall;
+searchForBall -> halt;
+searchForBall -> walkToBall;
+kick -> walkToBall;
+}
