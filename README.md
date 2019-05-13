@@ -100,7 +100,7 @@ with 192.168.3.25 to be the ip of the Nao we want to connect and as a pass we us
 ./SimRobot
 ```
 
-## Things needed for simRobot
+## Things needed for SimRobot
 
 - Activations of the following
     - behavior
